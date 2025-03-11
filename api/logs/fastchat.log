@@ -1,0 +1,3 @@
+【fastchat】INFO 2025-03-11 15:03:11 F:\Python\fastChat\api\application\utils\middleware.py:17 path=/api timer=0.00ms status_code=200
+【fastchat】INFO 2025-03-11 15:03:11 F:\Python\fastChat\api\application\utils\middleware.py:17 path=/favicon.ico timer=1.00ms status_code=404
+【fastchat】INFO 2025-03-11 15:03:25 F:\Python\fastChat\api\application\utils\middleware.py:17 path=/exception timer=5.45ms status_code=200

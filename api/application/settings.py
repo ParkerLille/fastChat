@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Time : 2025/3/11 17:51
+# @Author : Nean
 import os
 
-"""tortoise-orm数据库配置"""
 TORTOISE_ORM = {
     "connections": {
         "default": {
@@ -20,7 +22,7 @@ TORTOISE_ORM = {
     },
     'apps': {  # 默认所在的应用目录
         'models': {  # 数据模型的分组名
-            'models': ['application.apps.users.models', "aerich.models"],  # 模型所在目录文件的导包路径[字符串格式]
+            'models': ['application.apps.users.models', 'aerich.models'],  # 模型所在目录文件的导包路径[字符串格式]
             'default_connection': 'default',  # 上一行配置中的模型列表的默认连接配置
         }
     },
@@ -29,4 +31,12 @@ TORTOISE_ORM = {
     # 当use_tz=False时，当前tortoise-orm会默认使用timezone配置项中的时区
     'use_tz': False,
     'timezone': os.environ.get('APP_TIMEZONE', 'Asia/Shanghai')
+}
+SMS = {
+    'length': os.environ.get('SMS_CODE_LENGTH', 4)
+}
+
+WECHAT = {
+    'app_id': os.environ.get('WECHAT_APP_ID', ''),
+    'app_secret': os.environ.get('WECHAT_APP_SECRET', ''),
 }

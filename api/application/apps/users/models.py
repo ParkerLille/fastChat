@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# @Time : 2025/3/11 17:50
+# @Author : Nean
 from tortoise import models, fields
 
 
@@ -10,7 +13,6 @@ class User(models.Model):
     openid = fields.CharField(max_length=255, unique=True, description="OpenID")
     mobile = fields.CharField(max_length=15, index=True, description="手机")
     avatar = fields.CharField(max_length=500, null=True, description="头像")
-    country = fields.CharField(max_length=255, null=True, description="国家")
     province = fields.CharField(max_length=255, null=True, description="省份")
     city = fields.CharField(max_length=255, null=True, description="城市")
     sex = fields.BooleanField(default=True, null=True, description="性别")

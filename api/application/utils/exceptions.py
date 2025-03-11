@@ -1,24 +1,21 @@
-# -*- coding: utf-8 -*-
-# @Time : 2025/3/11 14:45
-# @Author : Nean
 import os
-from fastapi import HTTPException
-from fastapi.exceptions import RequestValidationError
+from fastapi import Request, status
+from fastapi.exceptions import HTTPException, RequestValidationError
 from fastapi.responses import JSONResponse
-from fastapi import status
-from .logs import get_logger
+from .logs import getLogger
 
-logger = get_logger(os.environ.get('APP_NAME'))
+logger = getLogger(os.environ.get('APP_NAME'))
 
 
-def global_http_exception_handler(request, exc):
+def global_http_exception_handler(request: Request, exc):
     """
-    全局HTTP异常处理函数
-    :param request: 本次发生异常时客户端请求对象
-    :param exc: 异常发生时的执行上下文对象，即异常对象
+    全局HTTP请求处理异常
+    :param request: HTTP请求对象
+    :param exc: 本次发生的异常对象
     :return:
     """
 
+    # 使用日志记录异常
     logger.error(f"发生异常：{exc.detail}")
 
     return JSONResponse({
@@ -28,11 +25,11 @@ def global_http_exception_handler(request, exc):
     })
 
 
-def global_request_exception_handler(request, exc):
+def global_request_exception_handler(request: Request, exc):
     """
     全局请求校验异常处理函数
-    :param request:
-    :param exc:
+    :param request: HTTP请求对象
+    :param exc: 本次发生的异常对象
     :return:
     """
 

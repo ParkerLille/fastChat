@@ -1,5 +1,5 @@
 
-svg.data-v-e4e4508d {
+svg.data-v-bac4a35d {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -9,7 +9,7 @@ svg.data-v-e4e4508d {
 		display: block;
 		background-color: #ffffff;
 }
-.loginBox.data-v-e4e4508d {
+.loginBox.data-v-bac4a35d {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -19,14 +19,14 @@ svg.data-v-e4e4508d {
 		padding: 60rpx;
 		box-sizing: border-box;
 }
-h3.data-v-e4e4508d {
+h3.data-v-bac4a35d {
 		color: rgb(66, 157, 250);
 		font-size: 40rpx;
 		letter-spacing: 10rpx;
 		margin-bottom: 40rpx;
 }
-.inputBox.data-v-e4e4508d {}
-.ipt.data-v-e4e4508d {
+.inputBox.data-v-bac4a35d {}
+.ipt.data-v-bac4a35d {
 		height: 86rpx;
 		display: flex;
 		justify-content: flex-start;
@@ -36,14 +36,15 @@ h3.data-v-e4e4508d {
 		border-radius: 10rpx;
 		padding-left: 10rpx;
 }
-.ipt input.data-v-e4e4508d {
+.ipt input.data-v-bac4a35d {
 		margin-left: 20rpx;
 		font-size: 28rpx;
 }
-.ipt input.data-v-e4e4508d {
+.ipt input.data-v-bac4a35d {
 		margin-left: 20rpx;
+		min-width: 340rpx;
 }
-.forgetPwd.data-v-e4e4508d {
+.forgetPwd.data-v-bac4a35d {
 		margin-top: 30rpx;
 		font-size: 26rpx;
 		color: #b5b5b5;
@@ -52,7 +53,7 @@ h3.data-v-e4e4508d {
 		display: flex;
 		justify-content: space-between;
 }
-.login-btn.data-v-e4e4508d {
+.login-btn.data-v-bac4a35d {
 		margin-top: 20rpx;
 		line-height: 85rpx;
 		text-align: center;
@@ -61,7 +62,7 @@ h3.data-v-e4e4508d {
 		color: #fff;
 		margin-top: 40rpx;
 }
-.tip.data-v-e4e4508d {
+.tip.data-v-bac4a35d {
 		text-align: center;
 		font-size: 28rpx;
 		position: fixed;
@@ -70,32 +71,33 @@ h3.data-v-e4e4508d {
 		transform: translate(-50%, -50%);
 		color: #f4f4f4;
 }
-.tipbox.data-v-e4e4508d {
+.tipbox.data-v-bac4a35d {
 		text-align: center;
-		margin-top: 100rpx;
+		margin-top: 50rpx;
 }
-.otherUser.data-v-e4e4508d {
+.otherUser.data-v-bac4a35d {
 		margin-top: 30rpx;
 		display: flex;
 		justify-content: center;
 }
-.otherUser button.data-v-e4e4508d {
+.otherUser button.data-v-bac4a35d {
 		margin: 0 10px;
 		padding: 0;
-		height: 42px;
-		line-height: 42px;
+		height: 84rpx;
+		width: 84rpx;
+		line-height: 84rpx;
 		background: transparent;
 		border: 1px solid transparent;
 		outline: none;
 }
-.txt.data-v-e4e4508d {
+.txt.data-v-bac4a35d {
 		font-size: 28rpx;
 		color: #cbcbcb;
 }
-.otherUser .uni-icons.data-v-e4e4508d {
+.otherUser .uni-icons.data-v-bac4a35d {
 		margin-left: 20rpx;
 }
-.yzm.data-v-e4e4508d {
+.yzm.data-v-bac4a35d {
 		text-align: end;
 		font-size: 24rpx;
 		background: rgb(66, 157, 250);
@@ -105,4 +107,9 @@ h3.data-v-e4e4508d {
 		text-align: center;
 		border-radius: 10rpx;
 		color: #fff;
+		margin-left: 20rpx;
+}
+.reg-btn.data-v-bac4a35d {
+		margin-top: 10px;
+		text-align: right;
 }

@@ -1,7 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/login/login"
+    "pages/register/register"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -9,5 +8,6 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

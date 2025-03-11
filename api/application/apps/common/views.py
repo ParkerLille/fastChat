@@ -1,27 +1,21 @@
+# -*- coding: utf-8 -*-
+# @Time : 2025/3/11 17:50
+# @Author : Nean
 import os
 from fastapi import APIRouter, HTTPException
 
-from application.utils.logs import get_logger
+from application.utils import tools, logs
+
+logger = logs.getLogger(os.environ.get('APP_NAME'))
 
 app = APIRouter()
 
 
-@app.get("/api")
-async def api():
+@app.get('/api')
+async def api() -> dict:
     """
-    测试接口
+    测试api接口
     :return:
     """
-    return {"Hello": f'{os.environ.get("APP_NAME")}'}
+    return {'title': 'fastchat test api'}
 
-
-@app.get('/exception')
-async def exception(name: str) -> dict:
-    """测试异常接口"""
-    try:
-        print(name)
-    except Exception as e:
-        logger = get_logger(os.environ.get('APP_NAME'))
-        logger.error(f"发生错误：{e}")
-        raise HTTPException(detail=f"{e}", status_code=500)
-    return {}

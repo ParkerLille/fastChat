@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# @Time : 2025/3/10 22:10
+# @Time : 2025/3/11 17:49
 # @Author : Nean
-import uvicorn
-import os
-from application import create_app
+import uvicorn, os
 
-app = create_app()
+from application import create_app, FastAPI
+
+app: FastAPI = create_app()
 
 if __name__ == '__main__':
     uvicorn.run(

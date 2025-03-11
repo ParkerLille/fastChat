@@ -1,43 +1,63 @@
 <template>
 	<view class="content">
 		<view class="loginBox">
-			<h3 style="text-align: center;margin-bottom:120rpx;">欢迎登录</h3>
+			<h3 style="text-align: center;margin-bottom:120rpx;">欢迎注册</h3>
 			<view class="inputBox">
 				<view class="ipt">
 					<uni-icons type="contact" size="24" color="rgb(66,157,250)"></uni-icons>
-					<input type="text" value="" placeholder="请输入账号" />
+					<input type="text" v-model="user_info.mobile" placeholder="请输入手机号" />
 				</view>
 				<view class="ipt">
 					<uni-icons type="eye" size="24" color="rgb(66,157,250)"></uni-icons>
-					<input type="passsword" value="" placeholder="请输入密码" />
+					<input type="password" v-model="user_info.password" placeholder="请输入密码" />
 				</view>
 				<view class="ipt">
 					<uni-icons type="checkmarkempty" size="24" color="rgb(66,157,250)"></uni-icons>
-					<input type="text" value="" placeholder="请输入验证码" />
+					<input type="text" v-model="user_info.sms_code" placeholder="请输入验证码" />
 					<view class="yzm">验证码</view>
 				</view>
-				<button class="login-btn">登录</button>
+				<button class="login-btn" open-type="getUserInfo" @getuserinfo="userRegister">注册</button>
 			</view>
 			<view class="txt reg-btn">
-				<navigator url="/pages/register/register" hover-class="navigator-hover">还没有账号？点击注册 </navigator>
-			</view>
-			<view class="tipbox">
-				<view class="txt"> —— 其他账号登录 —— </view>
-				<view class="otherUser">
-					<button>
-						<uni-icons type="qq" size="40" color="rgb(66,157,250)"></uni-icons>
-					</button>
-					<button open-type="getUserInfo" @getuserinfo="wxLogin">
-						<uni-icons type="weixin" size="40" color="rgb(2,187,17)"></uni-icons>
-					</button>
-				</view>
+				<navigator url="/pages/login/login" hover-class="navigator-hover">已有账号？点击登陆 </navigator>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
+	import {
+		ref,
+		reactive
+	} from 'vue';
 
+	// 用户注册信息
+	const user_info = reactive({
+		mobile: "",
+		password: "",
+		sms_code: "",
+	})
+
+	const userRegister = (e) => {
+		// 用户注册请求
+		console.log(e);
+		uni.login({
+			provider: 'weixin',
+			success(response) {
+				console.log(response.code);
+				// 发送用户的注册数据到fastAPI服务端
+				uni.request({
+					method: "POST",
+					url: "http://127.0.0.1:8000/users/register",
+					data: {
+						code: response.code,
+						...user_info,
+						...e.detail.userInfo
+					}
+				})
+			}
+		})
+	}
 </script>
 
 <style scoped>
@@ -90,6 +110,7 @@
 
 	.ipt input {
 		margin-left: 20rpx;
+		min-width: 340rpx;
 	}
 
 	.forgetPwd {
@@ -124,7 +145,7 @@
 
 	.tipbox {
 		text-align: center;
-		margin-top: 100rpx;
+		margin-top: 50rpx;
 	}
 
 	.otherUser {
@@ -136,8 +157,9 @@
 	.otherUser button {
 		margin: 0 10px;
 		padding: 0;
-		height: 42px;
-		line-height: 42px;
+		height: 84rpx;
+		width: 84rpx;
+		line-height: 84rpx;
 		background: transparent;
 		border: 1px solid transparent;
 		outline: none;
@@ -162,5 +184,11 @@
 		text-align: center;
 		border-radius: 10rpx;
 		color: #fff;
+		margin-left: 20rpx;
+	}
+
+	.reg-btn {
+		margin-top: 10px;
+		text-align: right;
 	}
 </style>

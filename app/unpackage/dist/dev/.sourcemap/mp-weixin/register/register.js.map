@@ -1,0 +1,1 @@
+{"version":3,"file":"register.js","sources":["E:/hbuilderx/plugins/uniapp-cli-vite/uniPage:/cmVnaXN0ZXIvcmVnaXN0ZXIudnVl"],"sourcesContent":["import MiniProgramPage from 'F:/Python/fastChat/app/register/register.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;;;;;;AACA,GAAG,WAAW,eAAe;"}

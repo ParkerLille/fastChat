@@ -1,26 +1,18 @@
-# -*- coding: utf-8 -*-
-# @Time : 2025/3/11 12:41
-# @Author : Nean
-import logging
-import os
-from logging import handlers, Logger
-
-import logging
+import logging, os
 from logging import handlers, Logger
 
 
-def get_logger(name: str = 'root') -> Logger:
+def getLogger(name: str = 'root') -> Logger:
     """
-    获取日志器对象
+    创建一个日志器的单例对象
     :param name: 日期器名字，默认为root
     :return: 日志器对象
+    :return:
     """
     # 1、创建一个logger日期器对象
     logger: Logger = logging.getLogger(name)
-
     # 2、设置下logger的日志的等级
     logger.setLevel(logging.DEBUG)
-
     if not logger.handlers:
         # 3、创建合适的Handler(FileHandler要有保存路径)
         th: logging.StreamHandler = logging.StreamHandler()  # 终端处理器
@@ -36,7 +28,6 @@ def get_logger(name: str = 'root') -> Logger:
             backupCount=10,  # 备份日志文件的数量，所有日志数量 = backupCount+filename
             encoding='utf-8'  # 日志文件内容的编码
         )
-
         # 4、设置下每个Handler的日志等级【Handler的日志等级会覆盖上面logger的日志的等级】
         th.setLevel(logging.DEBUG)
         rf.setLevel(logging.INFO)
@@ -51,6 +42,7 @@ def get_logger(name: str = 'root') -> Logger:
             datefmt="%Y-%m-%d %H:%M:%S",
             style="{"
         )
+
         # 6、向Handler中添加上面创建的格式器对象
         th.setFormatter(simple_formatter)
         rf.setFormatter(verbose_formatter)
@@ -63,8 +55,7 @@ def get_logger(name: str = 'root') -> Logger:
 
 
 if __name__ == '__main__':
-    # 8. 调用日志器对象logger打印输出日志
-    logger = get_logger('dl')
+    logger = getLogger('dl')
     logger.info("这里是常规运行日志")
     logger.debug("开发人员在调试程序时自己手动打印的日志")
     logger.warning("这里是程序遇到未来会废弃的函数/方法时，输出的警告日志")
@@ -72,5 +63,5 @@ if __name__ == '__main__':
     logger.critical("这是致命级别的日志，需要紧急修复的")
 
     # 多次调用实例化出来的日志对象，如果name相同，则得到的是同一个日志器对象（单例模式）
-    logger1 = get_logger('dl')
+    logger1 = getLogger('dl')
     print(id(logger1), id(logger))

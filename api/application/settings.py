@@ -33,10 +33,26 @@ TORTOISE_ORM = {
     'timezone': os.environ.get('APP_TIMEZONE', 'Asia/Shanghai')
 }
 SMS = {
-    'length': os.environ.get('SMS_CODE_LENGTH', 4)
+    'length': int(os.environ.get('SMS_CODE_LENGTH', 4)),  # 短信验证码长度
+    'expire': int(os.environ.get('SMS_CODE_EXPIRE', 4)),  # 短信验证码保存在redis中的有效期
 }
 
 WECHAT = {
     'app_id': os.environ.get('WECHAT_APP_ID', ''),
     'app_secret': os.environ.get('WECHAT_APP_SECRET', ''),
+}
+REDIS = {
+    'host': os.environ.get('RD_HOST', '127.0.0.1'),  # 数据库地址
+    'port': os.environ.get('RD_PORT', 6379),  # 数据库端口
+    'db': os.environ.get('RD_DB', 0),  # 数据库名
+    'username': os.environ.get('RD_USERNAME', ''),  # 用户名
+    'password': os.environ.get('RD_PASSWORD', ''),  # 密码
+}
+ALIYUN = {
+    'key': os.environ.get('ALIBABA_CLOUD_ACCESS_KEY_ID'),
+    'secret': os.environ.get('ALIBABA_CLOUD_ACCESS_KEY_SECRET'),
+    'sms': {
+        'sign_name': os.environ.get('ALIYUN_VERIFY_SMS_SIGN_NAME', '阿里云短信测试'),
+        'template_code': os.environ.get('ALIYUN_VERIFY_TEMPLATE_CODE', 'SMS_154950909'),
+    }
 }

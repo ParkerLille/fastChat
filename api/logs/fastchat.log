@@ -2,3 +2,5 @@
 【fastchat】INFO 2025-03-11 18:18:26 F:\Python\fastchat\api\application\utils\middleware.py:20 path=/favicon.ico timer=1.00ms status_code=404
 【fastchat】INFO 2025-03-11 18:35:59 F:\Python\fastchat\api\application\utils\middleware.py:20 path=/api timer=1.00ms status_code=200
 【fastchat】INFO 2025-03-11 18:44:38 F:\Python\fastchat\api\application\utils\middleware.py:20 path=/users/register timer=3.96ms status_code=200
+【fastchat】INFO 2025-03-12 11:48:56 F:\Python\fastchat\api\application\utils\middleware.py:20 path=/sms/15382760798 timer=522.37ms status_code=200
+【fastchat】INFO 2025-03-12 11:51:51 F:\Python\fastchat\api\application\utils\middleware.py:20 path=/sms/15382760798 timer=768.47ms status_code=200
